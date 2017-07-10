@@ -1,6 +1,8 @@
 
 #If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 #Find the sum of all the multiples of 3 or 5 below 1000.
+import math
+
 from utils import reverseNumber
 
 
@@ -52,5 +54,35 @@ def task4():
                 result = mul
     print(result)
 
-task4()
-#print(reverseNumber(int(12342)))
+def task5():
+    numToAchieve = 20
+    result = 1
+    listRemoved = []
+    sqrt = int(math.sqrt(numToAchieve))
+    for i in range(2, numToAchieve):
+        if i in listRemoved:
+            continue
+        removei = i
+        resulti = i
+        counter = 1
+        while removei <= numToAchieve:
+            if removei not in listRemoved:
+                listRemoved.append(removei)
+                resulti = removei
+            removei *= i
+            counter += 1
+        result *= resulti
+        listRemoved.sort()
+        for j in listRemoved:
+            for k in listRemoved:
+                if k*j <= numToAchieve and k*j not in listRemoved:
+                    listRemoved.append(k*j)
+        listRemoved.sort()
+        #print (listRemoved, i ,resulti )
+
+
+
+    print(result)
+
+
+task5()
