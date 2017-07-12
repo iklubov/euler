@@ -54,6 +54,7 @@ def task4():
                 result = mul
     print(result)
 
+#What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 def task5():
     numToAchieve = 20
     result = 1
@@ -79,10 +80,32 @@ def task5():
                     listRemoved.append(k*j)
         listRemoved.sort()
         #print (listRemoved, i ,resulti )
-
-
-
     print(result)
 
+#Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+def task6():
+    number = 1000000
+    result = 0
+    sum = 1
+    for i in range(1,number):
+        print(sum, i, (i+1)*sum)
+        result += (i+1)*sum
+        sum += (i+1)
+    result *= 2
+    print(result)
 
-task5()
+#What is the 10 001st prime number?
+def task7():
+    primeNums = [2]
+    firstNum = 2
+    while len(primeNums) < 10001:
+        firstNum += 1
+        if any(firstNum%num==0 for num in primeNums):
+            continue
+        primeNums.append(firstNum)
+        print(len(primeNums))
+    print (primeNums[0], primeNums[-1])
+
+
+
+task7()
