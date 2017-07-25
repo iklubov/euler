@@ -1,11 +1,14 @@
 
 #If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 #Find the sum of all the multiples of 3 or 5 below 1000.
+import fractions
 import math
+import random
 from functools import reduce
 
+import time
 
-from utils import reverseNumber
+from utils import reverseNumber, divisorGenerator
 
 
 def task1():
@@ -124,33 +127,33 @@ def task8():
     print(maxProd, maxProdString)
 
 def task9():
-    for k in range(1, 999):
-        for j in range(1, k):
-            for i in range(1, j):
-                if i**2 + j**2 == k**2:
-                    print(i,j,k, sum([i,j,k]))
-                    if sum([i,j,k]) == 1000:
-                        print(i*j*k)
-                        return
+    ct = time.time()
+    pifSum = 1000
+    def brutForce():
+        for k in range(1, 999):
+            for j in range(1, k):
+                for i in range(1, j):
+                    if i**2 + j**2 == k**2:
+                        #print(i,j,k, sum([i,j,k]))
+                        if sum([i,j,k]) == 1000:
+                            print(i*j*k, time.time() - ct)
+                            return
+    for m in divisorGenerator(pifSum/2):
+        for k in divisorGenerator(pifSum/(2*m)):
+            if k - m < m and k - m > 0 and fractions._gcd(m,k - m) == 1:
+                n = k - m
+                d = pifSum/(2*m*k)
+                print((m**2+n**2)*d, 2*m*n*d, (m**2-n**2)*d)
+    print(time.time() - ct)
+    brutForce()
 
-    # for i in range(1,999999999):
-    #     abc = [0]*3
-    #     num = i
-    #     counter = 0
-    #     while num > 0:
-    #         #print(num)
-    #         abc[counter] = int(num % 1000)
-    #         num = math.floor(num / 1000)
-    #         counter += 1
-    #     #print(i, abc)
-    #     if sum(abc) != 1000:
-    #         continue
-    #     print(i)
-    #     squares = [x*x for x in abc]
-    #     if (squares[0] + squares[1]) == squares[2]:
-    #         print('decision', abc)
-
-
-
-
-task9()
+#task9
+print(divisorGenerator(996))
+#for i in divisorGenerator(66666843216849849421321468498498513213213546546565165848784):
+# num = 500
+# while len(str(num)) < 30:
+#     ct = time.time()
+#     num *= 10
+#     num += random.randint(0,9)
+#     print(num, divisorGenerator(num), time.time()-ct)
+#print(list(divisorGenerator(565666666666665695899999999999999999999999999956454444444444444444454666666666666843216849849421321468498498513213213546546565165848784)))
