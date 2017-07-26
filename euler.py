@@ -127,33 +127,28 @@ def task8():
     print(maxProd, maxProdString)
 
 def task9():
-    ct = time.time()
     pifSum = 1000
     def brutForce():
+        ct = time.time()
         for k in range(1, 999):
             for j in range(1, k):
                 for i in range(1, j):
                     if i**2 + j**2 == k**2:
                         #print(i,j,k, sum([i,j,k]))
                         if sum([i,j,k]) == 1000:
-                            print(i*j*k, time.time() - ct)
+                            print('brutForce', i,j,k, time.time() - ct)
                             return
-    for m in divisorGenerator(pifSum/2):
-        for k in divisorGenerator(pifSum/(2*m)):
-            if k - m < m and k - m > 0 and fractions._gcd(m,k - m) == 1:
-                n = k - m
-                d = pifSum/(2*m*k)
-                print((m**2+n**2)*d, 2*m*n*d, (m**2-n**2)*d)
-    print(time.time() - ct)
+    def cleverWay():
+        ct = time.time()
+        for m in divisorGenerator(pifSum/2):
+            for k in divisorGenerator(pifSum/(2*m)):
+                if k - m < m and k - m > 0 and fractions._gcd(m,k - m) == 1:
+                    n = k - m
+                    d = pifSum/(2*m*k)
+                    print('cleverWay', (m**2+n**2)*d, 2*m*n*d, (m**2-n**2)*d, time.time() - ct)
     brutForce()
-
-#task9
-print(divisorGenerator(996))
-#for i in divisorGenerator(66666843216849849421321468498498513213213546546565165848784):
-# num = 500
-# while len(str(num)) < 30:
-#     ct = time.time()
-#     num *= 10
-#     num += random.randint(0,9)
-#     print(num, divisorGenerator(num), time.time()-ct)
-#print(list(divisorGenerator(565666666666665695899999999999999999999999999956454444444444444444454666666666666843216849849421321468498498513213213546546565165848784)))
+    cleverWay()
+#task9()
+ct = time.time()
+#divisorGenerator(1000568898989466654875780)
+print(divisorGenerator(5000000000000000000001), time.time() - ct)
