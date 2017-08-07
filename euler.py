@@ -3,12 +3,10 @@
 #Find the sum of all the multiples of 3 or 5 below 1000.
 import fractions
 import math
-import random
+import time
 from functools import reduce
 
-import time
-
-from utils import reverseNumber, divisorGenerator
+from utils import reverseNumber, divisorGenerator, get_primes
 
 
 def task1():
@@ -148,7 +146,9 @@ def task9():
                     print('cleverWay', (m**2+n**2)*d, 2*m*n*d, (m**2-n**2)*d, time.time() - ct)
     brutForce()
     cleverWay()
-#task9()
-ct = time.time()
-#divisorGenerator(1000568898989466654875780)
-print(divisorGenerator(5000000000000000000001), time.time() - ct)
+
+def task10():
+    NUM = 2000000
+    print(sum(get_primes(NUM)))
+
+task10()
