@@ -198,4 +198,20 @@ def task11():
         currentIndex += 1
     print(maxNums)
 
-task11()
+def task12():
+	startNum = 10000000
+	step = 1000
+	endNum = startNum*startNum
+	startSum = sum(range(startNum))
+	dsum = sum(range(step))
+	ml = len(divisorGenerator(startSum))
+	print(startSum, len(divisorGenerator(startSum)))
+	while startNum < endNum:
+		osn = startNum
+		startNum += 1000
+		startSum += startNum
+		ml = 0#max(ml, len(divisorGenerator(startSum)))
+		print(startNum, startSum, ml)
+
+
+task12()
