@@ -1,7 +1,6 @@
 from functools import reduce
 
 import math
-from time import time
 
 
 def reverseNumber(number, reversed=0):
@@ -11,69 +10,15 @@ def reverseNumber(number, reversed=0):
     tailNum = number // 10
     return reverseNumber(tailNum, 10*(lastNum + reversed))
 
-def get_divisors(n):
-    divisors = []
-    def search(n):
-        for i in range(2, int(math.sqrt(n) + 1)):
-            if n % i == 0:
-                return i
-    curN = n
-    newDivisor = search(curN)
-    while newDivisor:
-            divisors.append(curN)
-            divisors.append(n / curN)
-            curN = curN/newDivisor
-            newDivisor = search(curN)
-
-    return sorted(divisors)
-
-def get_primes(n):
-    numbers = set(range(n, 1, -1))
-    primes = []
-    while numbers:
-        p = numbers.pop()
-        primes.append(p)
-        numbers.difference_update(set(range(p*2, n+1, p)))
-    return primes
-
-
-def get_prime_representation(value):
-    def search(n):
-        if n in primes:
-            result[primes.index(n)] += 1
-            lastEmpty[0] = primes.index(n)
-            return
-        newPrimes = [p for p in primes if p <= int(math.sqrt(n) + 1)]
-
-        for i in range(lastEmpty[0], len(newPrimes)):
-            pi = newPrimes[i]
-            if n % pi == 0:
-                result[i] += 1
-                break
-            elif len(result) <= i:
-                lastEmpty[0] = i
-        #print(n, result)
-        if n/pi > 1:
-            search(n/pi)
-
-    primes = get_primes(value)
-    result = [0] * len(primes)
-    lastEmpty = [0]
-    search(value)
-    result = result[:lastEmpty[0]+1]
-    return result
-
-def get_prime_list(value):
+def get_divisors(num):
     result = []
-    repr = get_prime_representation(value)
-    primes = get_primes(value)
-    for i in range(len(repr)):
-        counter = repr[i]
-        if counter == 0:
-            continue
-        result.extend([primes[i]]*counter)
+    for i in range(1, math.floor(math.sqrt(num))+1):
+        if num%i == 0:
+            result.append(i)
+            if i * i == num:
+                continue
+            result.append(num/i)
     return result
-
 
 def isDegree(number, degree):
     while number > 1:
@@ -82,12 +27,7 @@ def isDegree(number, degree):
         number /= degree
     return True
 
-def isTriangleNum(num):
-    sq = math.sqrt(num*2)
-    sqr = math.floor(sq)
-    if 2*num == sqr*(sqr+1):
-        return num
-    return 0
+
 
 def get_permutations(dim, gap):
     mainArr =[]
@@ -98,7 +38,6 @@ def get_array_permutations(value):
     mainArr = []
     appendArray([0] * len(value), mainArr, len(value), value, lambda array: sorted(array) == sorted(value) and array not in mainArr)
     return mainArr
-
 
 def appendArray(array, mainArray, dim, iterator, filterFunction, recurseDepth=0):
     for i in iterator:

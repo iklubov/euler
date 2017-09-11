@@ -3,13 +3,11 @@
 #Find the sum of all the multiples of 3 or 5 below 1000.
 import fractions
 import math
-import random
+import time
 from functools import reduce
 
-import time
-
-from utils import reverseNumber, get_divisors, get_primes, isDegree, isTriangleNum, get_permutations, \
-    get_prime_representation, get_prime_list, get_array_permutations
+from garbage import get_primes
+from utils import reverseNumber, get_divisors
 
 
 def task1():
@@ -204,51 +202,19 @@ def task11():
         currentIndex += 1
     print(maxNums)
 
-def task12(num):
-    primeList = [p - 1 for p in get_prime_list(num)]
-    firstPrimes = get_primes(40)
-    currentTriangle = 0
-    arrays = get_permutations(len(primeList), len(firstPrimes))
-    print(primeList)
-    for arr in arrays:
-        currentNumber = 1
-        #print('arr', arr)
-        for i in range(len(primeList)):
-            prime = firstPrimes[arr[i]]
-            degree = primeList[i]
-            currentNumber *= prime**degree
-        if len(str(currentNumber)) > 300:
-            continue
-        #print(len(str(currentNumber)))
-        if isTriangleNum(currentNumber):
-            currentTriangle = max(currentTriangle, currentNumber)
-            break
+def task12(maxNum):
+    i = 0
+    nextLen = []
+    maxLen = []
+    while maxNum > i:
+        #j = (i + 1)
+        #i += j
+        i += 1
+        nextLen = get_divisors(i)
+        if len(maxLen) < len(nextLen):
+            maxLen = nextLen
+        if True:#j % 128 == 0:
+            print(i, len(nextLen))
+    print('RESULT', i, maxLen)
 
-    print(currentTriangle)
-
-# for i in range(1000000):
-#     if isTriangleNum(i):
-#         print(i)
-
-number = 504
-result = []
-primes = get_primes(number)
-primeList = [p - 1 for p in get_prime_list(number)]
-permutationsPrimes = get_array_permutations(primeList)
-print(primeList, permutationsPrimes)
-
-for num in range(2, number*100):
-    if num in primes:
-        continue
-    prepr = get_prime_representation(num)
-    #ps = prepr.sort()
-    #any(p for p in prepr if p not in primeList and p > 0)
-    if any(p for p in prepr if p not in primeList and p > 0) > 0:
-        continue
-    prepr = [p for p in prepr if p > 0]
-    if prepr in permutationsPrimes:
-        print('num', num, prepr)
-   # print(prepr in permutationsPrimes)
-#     #task12(num)
-# r = sorted(result, key=len)
-# print(r)
+task12(50000)
