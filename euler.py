@@ -206,15 +206,13 @@ def task12(maxNum):
     i = 0
     nextLen = []
     maxLen = []
-    while maxNum > i:
-        #j = (i + 1)
-        #i += j
-        i += 1
+    while len(nextLen) < maxNum:
+        j = (i + 1)
+        i += j
         nextLen = get_divisors(i)
         if len(maxLen) < len(nextLen):
             maxLen = nextLen
-        if True:#j % 128 == 0:
-            print(i, len(nextLen))
-    print('RESULT', i, maxLen)
+            print(len(maxLen), i)
+    print('RESULT', i, nextLen)
 
-task12(50000)
+#task12(500)
