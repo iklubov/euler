@@ -1,4 +1,3 @@
-from functools import reduce
 
 import math
 
@@ -27,7 +26,16 @@ def isDegree(number, degree):
         number /= degree
     return True
 
-
+def getKollatzSeq(num):
+    counter = 1
+    #nums = [str(num)]
+    #start = num
+    while num > 1:
+        num = num / 2 if num % 2 == 0 else 3*num + 1
+        counter += 1
+        #nums.append(str(int(num)))
+    #print(start, counter, "->".join(nums))
+    return counter
 
 def get_permutations(dim, gap):
     mainArr =[]
