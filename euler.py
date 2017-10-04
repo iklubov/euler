@@ -7,7 +7,7 @@ import time
 from functools import reduce
 
 from garbage import get_primes
-from utils import reverseNumber, get_divisors, getKollatzSeq
+from utils import reverseNumber, get_divisors, getKollatzSeq, inttobyte, checkforlattice
 
 
 def task1():
@@ -333,4 +333,30 @@ def task14():
             maxI = i
     print(maxKoll, maxI)
 
-task14()
+def task15():
+    latticeNum = 20
+    startNum = 2**latticeNum-1
+    intervals = []
+    for i in range(latticeNum+1):
+        intervalBorder = startNum*(2**i)
+        print(intervalBorder)
+        intervals.append(inttobyte(intervalBorder))
+    # for index, num in enumerate(intervals):
+    #     print("index", index, num)
+
+    valuesDict =  {
+        0:1,
+        1:latticeNum - 1,
+    }
+
+    for index in range(2, 19):
+        #lastValue = valuesDict[index-1]
+        diff = [(n**(index-1)) - 1  for n in range(1,latticeNum)]
+        print(index, diff, sum(diff))
+        valuesDict[index] = (latticeNum-1)**index - sum(diff)
+        pass
+    print(valuesDict, sum(valuesDict.values()))
+
+
+task15()
+#print(intToByteString(2 ** 20 - 1))

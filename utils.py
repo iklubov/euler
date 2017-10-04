@@ -37,6 +37,30 @@ def getKollatzSeq(num):
     #print(start, counter, "->".join(nums))
     return counter
 
+exists = []
+
+def inttobyte(x):
+    n = []
+    while x > 0:
+        y = x % 2
+        n.append(str(y))
+        x = int(x/2)
+    strt = "".join(reversed(n))
+    return strt
+
+def checkforlattice(x, digit, lenInterval, numToReach):
+    digits = 0
+    notDigits = 0
+    while x > 0:
+        y = x % 2
+        if y == digit: digits += 1
+        else: notDigits += 1
+        if notDigits > (lenInterval - numToReach):
+            return False
+        if digits > numToReach:
+            return False
+    return True
+
 def get_permutations(dim, gap):
     mainArr =[]
     appendArray([0]*dim, mainArr, dim, range(gap), lambda array:len(array) == len(set(array)))
