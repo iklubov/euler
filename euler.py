@@ -333,30 +333,23 @@ def task14():
             maxI = i
     print(maxKoll, maxI)
 
-def task15():
-    latticeNum = 20
-    startNum = 2**latticeNum-1
-    intervals = []
-    for i in range(latticeNum+1):
-        intervalBorder = startNum*(2**i)
-        print(intervalBorder)
-        intervals.append(inttobyte(intervalBorder))
-    # for index, num in enumerate(intervals):
-    #     print("index", index, num)
-
-    valuesDict =  {
-        0:1,
-        1:latticeNum - 1,
-    }
-
-    for index in range(2, 19):
-        #lastValue = valuesDict[index-1]
-        diff = [(n**(index-1)) - 1  for n in range(1,latticeNum)]
-        print(index, diff, sum(diff))
-        valuesDict[index] = (latticeNum-1)**index - sum(diff)
-        pass
-    print(valuesDict, sum(valuesDict.values()))
+def task15(latticeSize):
+    currentLatticeSize = 1
+    currentX = 0
+    currentY = 0
+    valueDict = {(0,0):1}
+    while currentLatticeSize < latticeSize:
+        currentLatticeSize += 1
+        while currentY < latticeSize:
+            while currentX < latticeSize:
+                valueDict[(currentY,currentX)] = 1 if currentX == 0 and currentY == 0 else\
+                                    (0 if currentX == 0 else valueDict[(currentY, currentX-1)])\
+                                       + (0 if currentY == 0 else valueDict[(currentY - 1, currentX)])
+                currentX += 1
+            currentX = 0
+            currentY += 1
+    print(valueDict[(latticeSize-1, latticeSize-1)])
 
 
-task15()
+task15(210)
 #print(intToByteString(2 ** 20 - 1))
