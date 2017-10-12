@@ -351,5 +351,7 @@ def task15(latticeSize):
     print(valueDict[(latticeSize-1, latticeSize-1)])
 
 
-task15(210)
-#print(intToByteString(2 ** 20 - 1))
+def task16():
+    print(sum([int(s) for s in str(2**1000)]))
+task16()
+
