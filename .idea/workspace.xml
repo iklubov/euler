@@ -21,8 +21,8 @@
       <file leaf-file-name="euler.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/euler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="354" column="46" lean-forward="false" selection-start-line="354" selection-start-column="46" selection-end-line="354" selection-end-column="46" />
+            <state relative-caret-position="379">
+              <caret line="374" column="19" lean-forward="true" selection-start-line="374" selection-start-column="19" selection-end-line="374" selection-end-column="19" />
               <folding>
                 <element signature="e#189#205#0" expanded="true" />
               </folding>
@@ -63,8 +63,8 @@
       <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-273572998/builtins.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71808">
-              <caret line="4224" column="7" lean-forward="false" selection-start-line="4224" selection-start-column="7" selection-end-line="4224" selection-end-column="7" />
+            <state relative-caret-position="170">
+              <caret line="4233" column="8" lean-forward="false" selection-start-line="4233" selection-start-column="8" selection-end-line="4233" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -118,8 +118,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -412,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507838572479</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="task15">
+      <created>1507839127102</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1507839127102</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -479,6 +486,48 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/euler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#189#205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="4" lean-forward="false" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/garbage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-273572998/math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="4" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-273572998/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71808">
+          <caret line="4224" column="7" lean-forward="false" selection-start-line="4224" selection-start-column="7" selection-end-line="4224" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/euler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -621,14 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-273572998/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71808">
-          <caret line="4224" column="7" lean-forward="false" selection-start-line="4224" selection-start-column="7" selection-end-line="4224" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -637,10 +678,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-273572998/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="4233" column="8" lean-forward="false" selection-start-line="4233" selection-start-column="8" selection-end-line="4233" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/euler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="354" column="46" lean-forward="false" selection-start-line="354" selection-start-column="46" selection-end-line="354" selection-end-column="46" />
+        <state relative-caret-position="379">
+          <caret line="374" column="19" lean-forward="true" selection-start-line="374" selection-start-column="19" selection-end-line="374" selection-end-column="19" />
           <folding>
             <element signature="e#189#205#0" expanded="true" />
           </folding>

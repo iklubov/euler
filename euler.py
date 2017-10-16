@@ -353,5 +353,66 @@ def task15(latticeSize):
 
 def task16():
     print(sum([int(s) for s in str(2**1000)]))
-task16()
+
+def task17():
+    numbers = [
+        'zero',
+        'one',
+        'two',
+        "three",
+        'four',
+        'five',
+        'six',
+        'seven',
+        'eight',
+        'nine',
+    ]
+    toTwenty =[
+        'ten',
+        'eleven',
+        'twelve',
+        'thirteen',
+        'fourteen',
+        'fifteen',
+        'sixteen',
+        'seventeen',
+        'eighteen',
+        'nineteen',
+    ]
+    toHundred = [
+        'twenty',
+        'thirty',
+        'forty',
+        'fifty',
+        'sixty',
+        'seventy',
+        'eighty',
+        'ninety',
+    ]
+    hundred = 'hundred'
+    thousand = 'thousand'
+    resultNum = 0
+    for i in range(1, 1001):
+        firstNum, secondNum, thirdNum, fourthNum = [(int(i/(10**n)))%10 for n in range(0,4)]
+        resultList = []
+        if fourthNum > 0:
+            resultList.extend([numbers[fourthNum], thousand])
+        if thirdNum > 0:
+            resultList.extend([numbers[thirdNum], hundred])
+        if secondNum > 0 or firstNum > 0:
+            if len(resultList):
+                resultList.append('and')
+            if secondNum == 1:
+                resultList.append(toTwenty[firstNum])
+            else:
+                twoDigitsString = '' if secondNum == 0 else toHundred[secondNum-2] + ('' if firstNum == 0 else '-')
+                oneDigitString = numbers[firstNum] if firstNum > 0 else ''
+                resultList.append(twoDigitsString+oneDigitString)
+        numberString = ' '.join(resultList)
+        numberStringLen =  len(numberString.replace('-','').replace(' ',''))
+        resultNum += numberStringLen
+        print(numberString, resultNum, numberStringLen)
+    print(resultNum)
+
+task17()
 
