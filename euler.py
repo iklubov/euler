@@ -471,3 +471,16 @@ def task19():
             firstDay %= 7
     print('weekdays', weekdays)
 
+def task20():
+    result = 1
+    for i in range(1, 101):
+        result = result * i
+        print('1 :', result)
+        while result % 10 == 0:
+            result = result // 10
+        print('2 :', result)
+    print('sum', sum([int(d) for d in str(result)]))
+
+task20()
+
+
