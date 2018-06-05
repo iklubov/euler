@@ -1,6 +1,7 @@
 
 #If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 #Find the sum of all the multiples of 3 or 5 below 1000.
+import calendar
 import fractions
 import math
 import time
@@ -455,6 +456,18 @@ def task18():
         currentLen += 1
     print(max(paths.values()))
 
-task19()
-	pass
+def task19():
+    DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    firstDay = 0 #monday jan 1st, 1900
+    weekdays = [0]*7
+    for year in range(1900, 2001):
+        for month in range(0, 12):
+            deltaDays = 1 if month == 1 and year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) else 0
+            print('Year is %d %s weekday is %s delta is %d' % (year, calendar.month_name[month + 1], calendar.day_name[firstDay], deltaDays))
+            days = DAYS[month] + deltaDays
+            if year > 1900:
+                weekdays[firstDay] += 1
+            firstDay += days % 28
+            firstDay %= 7
+    print('weekdays', weekdays)
 
