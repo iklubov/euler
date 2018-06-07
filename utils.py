@@ -9,14 +9,14 @@ def reverseNumber(number, reversed=0):
     tailNum = number // 10
     return reverseNumber(tailNum, 10*(lastNum + reversed))
 
-def get_divisors(num):
+def get_divisors(num, withLast=True):
     result = []
     for i in range(1, math.floor(math.sqrt(num))+1):
         if num%i == 0:
             result.append(i)
-            if i * i == num:
+            if i * i == num or (withLast and i == 1):
                 continue
-            result.append(num/i)
+            result.append(int(num/i))
     return result
 
 def isDegree(number, degree):

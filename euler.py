@@ -475,12 +475,27 @@ def task20():
     result = 1
     for i in range(1, 101):
         result = result * i
-        print('1 :', result)
         while result % 10 == 0:
             result = result // 10
-        print('2 :', result)
     print('sum', sum([int(d) for d in str(result)]))
 
-task20()
+def task21():
+    results = []
+    excluded = []
+    for i in range(1, 100000):
+        if i in excluded:
+            continue
+        divSum = sum(get_divisors(i, True))
+        if divSum <= 100000:
+            divSum2 = sum(get_divisors(divSum, True))
+            if divSum2 == i and divSum != i:
+                results.extend((i , divSum))
+    print(results)
 
+def task22():
+    f = open("p022_names.txt")
+    namesList =  str(f.read()).split(',')
+    print(len(namesList))
+
+task22()
 
